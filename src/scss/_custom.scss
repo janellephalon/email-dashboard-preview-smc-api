@@ -1,9 +1,6 @@
-// Here you can add other styles
-
-// EmailTable.module.scss
 .email-table-container {
   overflow-y: auto;
-  max-height: 300px; // Adjust this value as needed
+  max-height: 300px;
 
   table {
     width: 100%;
@@ -13,7 +10,7 @@
   thead th,
   tbody td {
     text-align: left;
-    width: 33.33%; // Divide the table into three equal columns
+    width: 33.33%;
   }
 
   thead th {
@@ -21,4 +18,24 @@
     top: 0;
     background: white;
   }
+}
+
+.widget-button {
+  border: .5px solid #ccc;
+  border-radius: 0.1rem;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  width: 125px;
+
+  &:hover {
+    background: #f5f5f5;
+  }
+}
+
+.title-style {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: auto;
+  margin-bottom: auto;
 }
