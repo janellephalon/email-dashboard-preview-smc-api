@@ -4,8 +4,7 @@
 ## Description
 This React-based admin dashboard is tailored for professionals in regulated industries who require secure communication channels. We've integrated the DataMotion Secure Message Center API to provide a seamless and secure email experience right within the dashboard. This integration allows users to stay on top of their workload by accessing their secure email inbox without needing to switch between different applications.
 
-<img width="419" alt="Screen Shot 2024-01-17 at 11 35 56 AM" src="https://github.com/janellephalon/email-dashboard-preview-smc-api/assets/95178236/1872b09a-a122-45dd-9f45-3e265e4619e3">
-
+![Dashboard](https://github.com/janellephalon/email-dashboard-preview-smc-api/assets/95178236/b35c113e-ff4d-4c0c-922a-94a3473059b8)
 
 ## Table of Contents
 - [Secure Email Inbox Integration in Admin Dashboard](#secure-email-inbox-integration-in-admin-dashboard)
