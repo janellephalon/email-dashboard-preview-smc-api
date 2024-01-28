@@ -10,11 +10,8 @@ import {
   CTableHead,
   CTableHeaderCell,
   CTableRow,
-  CDropdown,
-  CDropdownMenu,
-  CDropdownItem,
-  CDropdownToggle,
 } from '@coreui/react'
+
 const EmailTable = () => {
   const [emails, setEmails] = useState([])
   const [isLoading, setIsLoading] = useState(true)
@@ -53,29 +50,29 @@ const EmailTable = () => {
       : date.toLocaleDateString()
   }
 
-  const handleViewChange = (view) => {
-    setCurrentView(view)
-  }
-
   return (
-    <CCard className="mb-4">
-      <CCardHeader>
-        <div className="d-flex justify-content-between">
-          <div className="title-style">Secure Message Preview</div>
-          <CDropdown>
-            <CDropdownToggle color="secondary widget-button">
-              {currentView.charAt(0).toUpperCase() + currentView.slice(1)}
-            </CDropdownToggle>
-            <CDropdownMenu>
-              <CDropdownItem onClick={() => handleViewChange('inbox')}>Inbox</CDropdownItem>
-              <CDropdownItem onClick={() => handleViewChange('sent')}>Sent</CDropdownItem>
-            </CDropdownMenu>
-          </CDropdown>
+    <CCard className="mb-4 email-table">
+      <CCardHeader>Secure Inbox Preview</CCardHeader>
+      <div className="d-flex">
+        <div className="email-sidebar">
+          <ul>
+            <li
+              className={currentView === 'inbox' ? 'active' : ''}
+              onClick={() => setCurrentView('inbox')}
+            >
+              Inbox
+            </li>
+            <li
+              className={currentView === 'sent' ? 'active' : ''}
+              onClick={() => setCurrentView('sent')}
+            >
+              Sent
+            </li>
+            {/* Add more folders if needed */}
+          </ul>
         </div>
-      </CCardHeader>
-      <CCardBody>
-        <div className="email-table">
-          <CTable align="middle" className="mb-4 border" hover responsive>
+        <CCardBody>
+          <CTable align="left" className="mb-4 border" hover responsive>
             <CTableHead>
               <CTableRow>
                 <CTableHeaderCell scope="col">Sender</CTableHeaderCell>
@@ -87,8 +84,7 @@ const EmailTable = () => {
               {isLoading ? (
                 <CTableRow>
                   <CTableDataCell colSpan={3} className="">
-                    {' '}
-                    Loading emails...{' '}
+                    <div className="placeholder"></div>
                   </CTableDataCell>
                 </CTableRow>
               ) : emails.length > 0 ? (
@@ -106,8 +102,8 @@ const EmailTable = () => {
               )}
             </CTableBody>
           </CTable>
-        </div>
-      </CCardBody>
+        </CCardBody>
+      </div>
     </CCard>
   )
 }

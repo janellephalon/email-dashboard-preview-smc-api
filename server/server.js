@@ -24,19 +24,22 @@ app.get('/token', async (req, res) => {
 
 app.get('/messages', async (req, res) => {
   try {
-     const tokenResponse = await axios.post('https://api.datamotion.com/SMC/Messaging/v3/token', {
+    const tokenResponse = await axios.post('https://api.datamotion.com/SMC/Messaging/v3/token', {
       grant_type: 'client_credentials',
       client_id: process.env.CLIENT_ID, // assuming you have named it CLIENT_ID in .env
       client_secret: process.env.CLIENT_SECRET, // assuming you have named it CLIENT_SECRET in .env
     })
 
-    const messagesResponse = await axios.get('https://api.datamotion.com/SMC/Messaging/v3/content/messages/?folderId=1&pageSize=10&pageNumber=1&sortDirection=DESC&metadata=true', {
+    const messagesResponse = await axios.get(
+      'https://api.datamotion.com/SMC/Messaging/v3/content/messages/?folderId=1&pageSize=10&pageNumber=1&sortDirection=DESC&metadata=true',
+      {
         headers: {
-          Authorization: `Bearer ${tokenResponse.data.access_token}`
-        }
-      })
+          Authorization: `Bearer ${tokenResponse.data.access_token}`,
+        },
+      },
+    )
 
-      res.json(messagesResponse.data)
+    res.json(messagesResponse.data)
   } catch (error) {
     res.status(500).json({ message: 'Error fetching messages', error: error.response.data })
   }
@@ -50,18 +53,20 @@ app.get('/sent-messages', async (req, res) => {
       client_secret: process.env.CLIENT_SECRET,
     })
 
-    const sentMessagesResponse = await axios.get('https://api.datamotion.com/SMC/Messaging/v3/content/messages/?folderId=3&pageSize=10&pageNumber=1&sortDirection=DESC&metadata=true', {
+    const sentMessagesResponse = await axios.get(
+      'https://api.datamotion.com/SMC/Messaging/v3/content/messages/?folderId=3&pageSize=10&pageNumber=1&sortDirection=DESC&metadata=true',
+      {
         headers: {
-          Authorization: `Bearer ${tokenResponse.data.access_token}`
-        }
-      })
+          Authorization: `Bearer ${tokenResponse.data.access_token}`,
+        },
+      },
+    )
 
     res.json(sentMessagesResponse.data)
   } catch (error) {
-    res.status(500).json({ message: 'Error fetching sent messages', error: error.response.data });
+    res.status(500).json({ message: 'Error fetching sent messages', error: error.response.data })
   }
 })
-
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`)

@@ -1,5 +1,4 @@
 .email-table-container {
-  overflow-y: auto;
   max-height: 300px;
 
   table {
@@ -12,25 +11,6 @@
     text-align: left;
     width: 33.33%;
   }
-
-  thead th {
-    position: sticky;
-    top: 0;
-    background: white;
-  }
-}
-
-.widget-button {
-  border: .5px solid #ccc;
-  border-radius: 0.1rem;
-  background: white;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  width: 125px;
-
-  &:hover {
-    background: #f5f5f5;
-  }
 }
 
 .title-style {
@@ -39,3 +19,37 @@
   margin-top: auto;
   margin-bottom: auto;
 }
+
+.email-sidebar {
+  width: 150px;
+  background-color: #f8f9fa;
+  padding: .5rem;
+}
+
+.email-sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.email-sidebar ul li {
+  padding: .25rem;
+  cursor: pointer;
+  font-weight: 500;
+  color: #495057;
+}
+
+.email-sidebar ul li.active {
+  background-color: #e9ecef;
+}
+
+.email-sidebar ul li:hover {
+  background-color: #dee2e6;
+}
+
+.placeholder {
+  background-color: #f0f0f0; /* Light grey background */
+  height: 1em; /* Adjust as needed */
+  width: 100%;
+  border-radius: 4px;
+}
+
